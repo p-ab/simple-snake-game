@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GameScreenComponent } from './game-screen/game-screen.component';
+import { GridLayoutComponent } from './grid-layout/grid-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameScreenComponent
+    GameScreenComponent,
+    GridLayoutComponent
   ],
   imports: [
     BrowserModule

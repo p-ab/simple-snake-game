@@ -85,7 +85,7 @@ export class GameScreenComponent implements OnInit {
   }
 
   gameAction() {
-    const snakeMoving = setInterval(() => {
+    const snakeMoving = setTimeout(() => {
       const snakeTailPos = this.snake.positions.slice(0, -1);
       let snakeHeadPos = [];
       switch (this.direction) {
@@ -104,7 +104,7 @@ export class GameScreenComponent implements OnInit {
       }
 
       if (snakeHeadPos[0] === 20 || snakeHeadPos[0] === -1 || snakeHeadPos[1] === 20 || snakeHeadPos[1] === -1) {
-        clearInterval(snakeMoving);
+        // clearInterval(snakeMoving);
         alert(`Game over. You got ${this.snake.points} points!`);
       }
 
