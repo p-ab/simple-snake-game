@@ -1,3 +1,32 @@
-<div class="grid-container">
-  <div class="grid-cell" *ngFor="let i of generateGridList()"> {{i}} </div>
+<section>
+  <div class="panel-info">
+    <div class="score">Your score: {{snake.points}}</div>
+    <div class="speed">Snake's speed: {{1000 - snake.speed}}</div>
+  </div>
+  <div class="panel-controls">
+    <button class="start" *ngIf="gameStates.isPaused || gameStates.isOver" (click)="initGame()">
+      {{ gameStates.isOver ? 'New Game' : 'Shuffle' }}
+    </button>
+    <button class="toggle-play" *ngIf="!gameStates.isOver" (click)="togglePause()">
+      {{ gameStates.isPaused ? 'Play' : 'Pause' }}
+    </button>
+  </div>
+</section>
+<div class="grid-container" *ngIf="!gameStates.isOver; else gameOver"
+  [style.--grid-color]="'#096792'"
+  [style.--rows]="grid.rows"
+  [style.--columns]="grid.columns">
+  <div class="grid-cell" *ngFor="let i of generateGridList()"
+  [ngClass]="[i === feed.position ? 'feed' : '', snake.positions.indexOf(i) !== -1 ? 'snake-part' : '']"></div>
+</div>
+<ng-template #gameOver>
+  <div class="big-caption">Game Over!</div>
+</ng-template>
+<hr>
+<section>
+  <pre>Control by arrows, space - toggle pause/play, enter - reset game.
+    No records saving. Good luck.</pre>
+</section>
+<div>
+  <p>{{gameObserver.time | async}}</p>
 </div>
