@@ -1,7 +1,0 @@
-<table class="game-screen">
-  <tr *ngFor="let row of createList(screen.height); let rowIndex = index;">
-    <td *ngFor="let col of createList(screen.width); let colIndex = index;"
-      [ngClass]="[rowIndex === feed.position[0] && colIndex === feed.position[1] ? 'feed' : '', isSnakeField(rowIndex, colIndex) ? 'snake-part' : '']">
-    </td>
-  </tr>
-</table>

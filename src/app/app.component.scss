@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  p {
+    font-size: 30px;
+    margin: 5px auto;
+  }
+}
